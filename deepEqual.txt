@@ -1,0 +1,19 @@
+let a:object={b:3, c:"hola"}
+let b:object={b:2, c:"hola"}
+
+
+let deepEqual = (a:object,b:object, i:number):boolean=>{
+let c:string[]=Object.keys(a)
+let d:string[]=Object.keys(b)
+if(i==c.length){
+    return true
+}else{
+    if(c[i]!=d[i]){
+    return false
+}
+i+=1
+return deepEqual(a,b,i)
+}
+
+}
+console.log(deepEqual(a,{b:14, c:49812},0))
