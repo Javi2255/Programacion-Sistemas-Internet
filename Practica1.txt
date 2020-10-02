@@ -1,4 +1,4 @@
-const objeto={
+const objeto:Object={
    nombre:"Javi" ,edad:20,apellidos:"Perez Celada", //string number boolean
     amigos:[ //Object
         {
@@ -9,7 +9,7 @@ const objeto={
         },
     ]
 }
-const objeto2={
+const objeto2:Object={
     nombre:"Javi",edad:20,apellidos:"Pepe",
     amigos:[
         {
@@ -22,7 +22,7 @@ const objeto2={
     ]
 }
 
-const coche={
+const coche:Object={
     puertas:2, color:"Rojo",
     conductores:[{
         nombre:"Javier",carnet:"Coche", otroCarnet:[{nombre:"Moto"}]
@@ -33,24 +33,24 @@ const coche={
 }
 
 
-const deepPrint=(a:Object)=>{
-    let l=Object.keys(a)
+const deepPrint=(a:Object):void=>{
+    let l:string[]=Object.keys(a)
     l.forEach(key=>{
-        if(Array.isArray(a[key])){ //Objeto
+        if(Array.isArray(a[key])){ //"nombre"
             console.log(`${key}:`) 
             for(let i of a[key]){
                 
                deepPrint(i)
             }
-        }else if(typeof (a[key]!=Object)){ //!Objeto
+        }else if(typeof (a[key]!="object")){ //!Objeto
             console.log(`${key}: ${a[key]}`)
         }
   })
 }
 
 const deepEqual=(a:Object, b:Object, i:number):boolean=>{
-    let c=Object.keys(a)
-    let d=Object.keys(b)
+    let c:string[]=Object.keys(a)
+    let d:string[]=Object.keys(b)
     if(Object.keys(a).length!=Object.keys(b).length){
         return false
     }else{
@@ -73,7 +73,7 @@ const deepEqual=(a:Object, b:Object, i:number):boolean=>{
 
 const deepClone=(a:Object):Object=>{
     
-  let copia={} //nombre:"Javi"
+  let copia:Object={} //nombre:"Javi"
   for(let i in a){
       let valor = a[i] 
      
