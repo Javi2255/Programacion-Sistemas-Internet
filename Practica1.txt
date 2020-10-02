@@ -22,6 +22,16 @@ const objeto2={
     ]
 }
 
+const coche={
+    puertas:2, color:"Rojo",
+    conductores:[{
+        nombre:"Javier",carnet:"Coche", otroCarnet:[{nombre:"Moto"}]
+    },
+    {
+        nombre2:"Pepito",carnet:"Coche", otroCarnet:[{nombre:"Camion"}]
+    }]
+}
+
 
 const deepPrint=(a:Object)=>{
     let l=Object.keys(a)
@@ -62,6 +72,7 @@ const deepEqual=(a:Object, b:Object, i:number):boolean=>{
 }
 
 const deepClone=(a:Object):Object=>{
+    
   let copia={} //nombre:"Javi"
   for(let i in a){
       let valor = a[i] 
@@ -74,14 +85,15 @@ const deepClone=(a:Object):Object=>{
       }
 
   }
+
  deepPrint(copia)
   return copia
 }
 
-const objeto3 = deepClone(objeto)
+const objeto3 = deepClone(coche)
 console.log(deepEqual(objeto3,objeto2,0))
 console.log("======================")
-deepClone(objeto2)
+deepClone(coche)
 console.log("======================")
 deepPrint(objeto)
 console.log("======================")
